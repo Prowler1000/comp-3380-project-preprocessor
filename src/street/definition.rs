@@ -1,5 +1,6 @@
 use std::{fmt::Display, num::ParseFloatError, sync::LazyLock};
 
+use comp_3380_project_preprocessor::LOCATION_REGEX;
 use csv::Reader;
 use regex::Regex;
 use serde::{Deserialize, Serialize};
@@ -166,12 +167,6 @@ impl PartialStreetDefinition {
         end_measure: &str,
         location: &str,
     ) -> Result<Self, StreetDefinitionParseError> {
-        static LOCATION_REGEX: LazyLock<Regex> = LazyLock::new(|| {
-            Regex::new(
-                r"((?P<latitude>-?[0-9]{2}\.[0-9]+)\s(?P<longitude>-?[0-9]{2}\.[0-9]+)[,\s]{0,2})",
-            )
-            .expect("Failed to create location regex")
-        });
         let coordinates = LOCATION_REGEX
             .captures_iter(location)
             .map(
