@@ -1,8 +1,10 @@
 use anyhow::Ok;
 use calamine::{Data, Range};
+use serde::{Deserialize, Serialize};
 
-use crate::census::{assert_get_counts, assert_test_ranges, population::{Population, get_row_population}};
+use crate::census::{assert_test_ranges, population::{Population, get_row_population}};
 
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub struct MainTransportation {
     personal_vehicle_driver: Population,
     public_transit: Population,
