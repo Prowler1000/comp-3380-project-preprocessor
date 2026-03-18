@@ -1,7 +1,15 @@
 use std::sync::LazyLock;
 
 use regex::Regex;
+use serde::{Deserialize, Serialize};
 
+#[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
+pub enum Datapoint<T> {
+    NotApplicable,
+    Redacted,
+    #[serde(untagged)]
+    Datapoint(T),
+}
 
 pub static LOCATION_REGEX: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(
