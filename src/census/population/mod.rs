@@ -1,4 +1,4 @@
-use std::ops::Add;
+use std::{f64, ops::Add};
 
 use anyhow::Context;
 use calamine::{Data, Range};
@@ -75,7 +75,7 @@ pub fn get_row_int_population(sheet: &Range<Data>, row: u32) -> anyhow::Result<P
 
 pub fn get_row_float_population(sheet: &Range<Data>, row: u32) -> anyhow::Result<Population<f64>> {
     Ok(Population {
-        male: get_float(sheet.get_value((row, 1))).context("No or invalid male float value")?,
-        female: get_float(sheet.get_value((row, 2))).context("No or invalid female float value")?,
+        male: get_float(sheet.get_value((row, 1)), || Ok(f64::NAN)).context("No or invalid male float value")?,
+        female: get_float(sheet.get_value((row, 2)), || Ok(f64::NAN)).context("No or invalid female float value")?,
     })
 }

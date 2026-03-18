@@ -55,10 +55,13 @@ pub(crate) fn get_int_rounding(data: Option<&Data>) -> Option<i64> {
     }
 }
 
-pub(crate) fn get_float(data: Option<&Data>) -> Option<f64> {
+pub(crate) fn get_float<F>(data: Option<&Data>, on_not_applicable: F) -> anyhow::Result<f64> where F: FnOnce() -> anyhow::Result<f64> {
     match data {
-        Some(Data::Float(val)) => Some(*val),
-        _ => None,
+        Some(Data::Float(val)) => Ok(*val),
+        Some(Data::String(str)) if str.trim() == "..." => {
+            on_not_applicable()
+        },
+        invalid => Err(anyhow::Error::msg(format!("Expected a float, found {:#?}", invalid))),
     }
 }
 
