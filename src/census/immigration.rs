@@ -8,6 +8,12 @@ use serde::{Deserialize, Serialize};
 use crate::census::{assert_get_counts, get_int_rounding};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct Immigration {
+    pub birthplace: Birthplace,
+    pub period: ImmigrationPeriod,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Birthplace(pub HashMap<String, u64>);
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
@@ -20,11 +26,14 @@ pub struct ImmigrationPeriod {
     from_2016_to_2021: u64,
 }
 
-pub fn get_immigration(sheet: &Range<Data>) -> anyhow::Result<(Birthplace, ImmigrationPeriod)> {
-    Ok((get_birthplace(sheet)?, get_immigration_period(sheet)?))
+pub fn get_immigration(sheet: &Range<Data>) -> anyhow::Result<Immigration> {
+    Ok(Immigration {
+        birthplace: get_birthplace(sheet)?,
+        period: get_immigration_period(sheet)?
+    })
 }
 
-pub fn get_immigration_period(sheet: &Range<Data>) -> anyhow::Result<ImmigrationPeriod> {
+fn get_immigration_period(sheet: &Range<Data>) -> anyhow::Result<ImmigrationPeriod> {
     let mut items = assert_get_counts(sheet, 
     [
         (269, "Before 1980"),
@@ -46,7 +55,7 @@ pub fn get_immigration_period(sheet: &Range<Data>) -> anyhow::Result<Immigration
     )
 }
 
-pub fn get_birthplace(sheet: &Range<Data>) -> anyhow::Result<Birthplace> {
+fn get_birthplace(sheet: &Range<Data>) -> anyhow::Result<Birthplace> {
     assert_matches!(sheet.get_value((230, 0)), Some(Data::String(str)) if str.trim() == "IMMIGRATION");
     assert_matches!(sheet.get_value((231, 0)), Some(Data::String(str)) if str.trim() == "Place of Birth");
     let mut map = HashMap::<String, u64>::new();

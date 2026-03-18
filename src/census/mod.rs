@@ -6,21 +6,11 @@ use calamine::{Data, Range, Reader, open_workbook_auto};
 use serde::{Deserialize, Serialize};
 
 use crate::census::{
-    citizenship::{Citizenship, get_citizenship},
-    education::{HighestCertDiplomaDegree, PostSecondary, get_education},
-    immigration::{Birthplace, ImmigrationPeriod, get_immigration},
-    indigenous::{IndigenousAncestry, IndigenousIdentity, get_indigenous},
-    labour::{EmploymentSector, LabourForceActivity, get_labour},
-    language::{OfficialLanguages, UnofficialLanguages, get_languages},
-    marital_status::{MaritalStatus, get_marital_status},
-    population::{
+    citizenship::{Citizenship, get_citizenship}, education::{Education, get_education}, immigration::{Immigration, get_immigration}, income::{Income, get_income}, indigenous::{Indigenous, get_indigenous}, labour::{Labour, get_labour}, language::{Language, get_languages}, marital_status::{MaritalStatus, get_marital_status}, population::{
         TotalPopulation,
         by_age::{PopulationByAge, get_population_by_age},
         get_population,
-    },
-    religion::{Religion, get_religion},
-    transportation::{MainTransportation, get_transportation},
-    visible_minorities::{VisibleMinorities, get_visible_minorities},
+    }, religion::{Religion, get_religion}, transportation::{MainTransportation, get_transportation}, visible_minorities::{VisibleMinorities, get_visible_minorities}
 };
 
 pub mod citizenship;
@@ -34,6 +24,7 @@ pub mod population;
 pub mod religion;
 pub mod transportation;
 pub mod visible_minorities;
+pub mod income;
 
 pub fn assert_get_counts(
     sheet: &Range<Data>,
@@ -75,21 +66,17 @@ pub(crate) fn get_float(data: Option<&Data>) -> Option<f64> {
 pub struct CensusData {
     total_population: TotalPopulation,
     population_by_age: PopulationByAge,
-    official_languages: OfficialLanguages,
-    unofficial_languages: UnofficialLanguages,
-    indigenous_identity: IndigenousIdentity,
-    indigenous_ancestry: IndigenousAncestry,
+    languages: Language,
+    indigenous: Indigenous,
     visible_minorities: VisibleMinorities,
     citizenship: Citizenship,
-    birthplace: Birthplace,
-    immigration_period: ImmigrationPeriod,
+    immigration: Immigration,
     religion: Religion,
     marital_status: MaritalStatus,
-    post_secondary: PostSecondary,
-    highest_cert_diploma_or_degree: HighestCertDiplomaDegree,
-    labour_force_activity: LabourForceActivity,
-    employment_sector: EmploymentSector,
+    education: Education,
+    labour: Labour,
     transportation: MainTransportation,
+    income: Income,
 }
 
 pub fn get_census_data<P>(path: P) -> anyhow::Result<CensusData>
@@ -102,37 +89,29 @@ where
         .context("Failed to get data worksheet")??;
     let total_population = get_population(&sheet)?;
     let population_by_age = get_population_by_age(&sheet)?;
-    let (official_languages, unofficial_languages) = get_languages(&sheet)?;
-    let (indigenous_identity, indigenous_ancestry) = get_indigenous(&sheet)?;
     let visible_minorities = get_visible_minorities(&sheet)?;
     let citizenship = get_citizenship(&sheet)?;
-    let (birthplace, immigration_period) = get_immigration(&sheet)?;
     let religion = get_religion(&sheet)?;
     let marital_status = get_marital_status(&sheet)?;
-    let (post_secondary, highest_cert_diploma_or_degree) = get_education(&sheet)?;
-    let (labour_force_activity, employment_sector) = get_labour(&sheet)?;
     let transportation = get_transportation(&sheet)?;
     Ok(CensusData {
         total_population,
         population_by_age,
-        official_languages,
-        unofficial_languages,
-        indigenous_identity,
-        indigenous_ancestry,
+        languages: get_languages(&sheet)?,
+        indigenous: get_indigenous(&sheet)?,
         visible_minorities,
         citizenship,
-        birthplace,
-        immigration_period,
+        immigration: get_immigration(&sheet)?,
         religion,
         marital_status,
-        post_secondary,
-        highest_cert_diploma_or_degree,
-        labour_force_activity,
-        employment_sector,
+        education: get_education(&sheet)?,
+        labour: get_labour(&sheet)?,
         transportation,
+        income: get_income(&sheet)?,
     })
 }
 
+#[allow(unused)]
 pub fn test() -> anyhow::Result<()> {
     static TEST_PATH: &str = ".raw_data/Amber Trails.xlsx";
     let mut workbook = open_workbook_auto(TEST_PATH).context("Failed to open workbook")?;
@@ -151,12 +130,12 @@ pub fn test() -> anyhow::Result<()> {
     let education = get_education(&sheet)?;
     let labour = get_labour(&sheet)?;
     let transportation = get_transportation(&sheet)?;
-    // println!("{:#?}", population);
-    // println!("{:#?}", pop_by_age);
-    // println!("{:#?}", languages);
-    // println!("{:#?}", indigenous);
-    // println!("{:#?}", visible_minorities);
-    // println!("{:#?}", citizenship);
+    println!("{:#?}", population);
+    println!("{:#?}", pop_by_age);
+    println!("{:#?}", languages);
+    println!("{:#?}", indigenous);
+    println!("{:#?}", visible_minorities);
+    println!("{:#?}", citizenship);
     println!("{:#?}", immigration);
     Ok(())
 }

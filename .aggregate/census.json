@@ -95,56 +95,60 @@
         "female": 0
       }
     },
-    "official_languages": {
-      "english_only": 8205,
-      "english_and_french": 375,
-      "neither_english_or_french": 500,
-      "french_only": 0
+    "languages": {
+      "official": {
+        "english_only": 8205,
+        "english_and_french": 375,
+        "neither_english_or_french": 500,
+        "french_only": 0
+      },
+      "unofficial": {
+        "Dutch": 0,
+        "Mandarin": 0,
+        "Amharic": 15,
+        "Iranian Persian": 0,
+        "Korean": 10,
+        "Hindi": 25,
+        "Arabic": 0,
+        "Italian": 0,
+        "Gujarati": 30,
+        "Bengali": 0,
+        "Somali": 0,
+        "Swahili": 0,
+        "Yoruba": 0,
+        "Ojibway, not otherwise specified": 0,
+        "German": 10,
+        "Kurdish": 0,
+        "Plautdietsch": 0,
+        "Polish": 70,
+        "Punjabi (Panjabi)": 3310,
+        "Urdu": 0,
+        "Spanish": 15,
+        "Portuguese": 75,
+        "Greek": 0,
+        "Yue (Cantonese)": 80,
+        "Vietnamese": 105,
+        "Tigrigna": 0,
+        "Russian": 40,
+        "Tagalog (Pilipino, Filipino)": 1430,
+        "Ukrainian": 85,
+        "Ilocano": 25,
+        "Other": 35
+      }
     },
-    "unofficial_languages": {
-      "Tagalog (Pilipino, Filipino)": 1430,
-      "Spanish": 15,
-      "Bengali": 0,
-      "Italian": 0,
-      "Punjabi (Panjabi)": 3310,
-      "Gujarati": 30,
-      "Iranian Persian": 0,
-      "Mandarin": 0,
-      "Polish": 70,
-      "Arabic": 0,
-      "Yue (Cantonese)": 80,
-      "Russian": 40,
-      "Yoruba": 0,
-      "Somali": 0,
-      "Plautdietsch": 0,
-      "Ilocano": 25,
-      "Korean": 10,
-      "Tigrigna": 0,
-      "German": 10,
-      "Ukrainian": 85,
-      "Vietnamese": 105,
-      "Portuguese": 75,
-      "Dutch": 0,
-      "Kurdish": 0,
-      "Swahili": 0,
-      "Hindi": 25,
-      "Ojibway, not otherwise specified": 0,
-      "Other": 35,
-      "Urdu": 0,
-      "Amharic": 15,
-      "Greek": 0
-    },
-    "indigenous_identity": {
-      "métis": 135,
-      "first_nations": 145,
-      "inuk": 0,
-      "multiple": 0,
-      "other": 0
-    },
-    "indigenous_ancestry": {
-      "first_nations": 145,
-      "métis": 120,
-      "inuit": 0
+    "indigenous": {
+      "identity": {
+        "métis": 135,
+        "first_nations": 145,
+        "inuk": 0,
+        "multiple": 0,
+        "other": 0
+      },
+      "ancestry": {
+        "first_nations": 145,
+        "métis": 120,
+        "inuit": 0
+      }
     },
     "visible_minorities": {
       "filipino": 2730,
@@ -164,71 +168,73 @@
       "citizen": 6790,
       "non_citizen": 2285
     },
-    "birthplace": {
-      "Guyana": 35,
-      "Germany": 25,
-      "Brazil": 0,
-      "United States of America": 45,
-      "Nigeria": 15,
-      "United Kingdom": 45,
-      "Syria": 0,
-      "Bangladesh": 0,
-      "Trinidad and Tobago": 0,
-      "Eritrea": 0,
-      "Congo, Democratic Republic of the": 0,
-      "Sri Lanka": 15,
-      "Egypt": 0,
-      "Pakistan": 10,
-      "Korea, South": 10,
-      "China": 30,
-      "Portugal": 55,
-      "Iraq": 0,
-      "India": 2410,
-      "Other": 180,
-      "El Salvador": 0,
-      "Viet Nam": 125,
-      "Philippines": 1745,
-      "Jamaica": 20,
-      "Russian Federation": 15,
-      "Hong Kong": 0,
-      "Netherlands": 0,
-      "Ethiopia": 15,
-      "Ukraine": 70,
-      "Poland": 50,
-      "Italy": 30
-    },
-    "immigration_period": {
-      "before_1980": 285,
-      "from_1980_to_1990": 555,
-      "from_1991_to_2000": 490,
-      "from_2000_to_2010": 1670,
-      "from_2011_to_2015": 1050,
-      "from_2016_to_2021": 900
+    "immigration": {
+      "birthplace": {
+        "China": 30,
+        "Korea, South": 10,
+        "Syria": 0,
+        "Bangladesh": 0,
+        "El Salvador": 0,
+        "Hong Kong": 0,
+        "Germany": 25,
+        "Viet Nam": 125,
+        "Netherlands": 0,
+        "Ukraine": 70,
+        "Egypt": 0,
+        "United States of America": 45,
+        "Nigeria": 15,
+        "Pakistan": 10,
+        "Russian Federation": 15,
+        "Poland": 50,
+        "India": 2410,
+        "United Kingdom": 45,
+        "Jamaica": 20,
+        "Congo, Democratic Republic of the": 0,
+        "Iraq": 0,
+        "Sri Lanka": 15,
+        "Other": 180,
+        "Portugal": 55,
+        "Philippines": 1745,
+        "Italy": 30,
+        "Trinidad and Tobago": 0,
+        "Ethiopia": 15,
+        "Brazil": 0,
+        "Guyana": 35,
+        "Eritrea": 0
+      },
+      "period": {
+        "before_1980": 285,
+        "from_1980_to_1990": 555,
+        "from_1991_to_2000": 490,
+        "from_2000_to_2010": 1670,
+        "from_2011_to_2015": 1050,
+        "from_2016_to_2021": 900
+      }
     },
     "religion": {
-      "Anglican": 0,
-      "Jewish": 35,
-      "United Church": 85,
-      "Methodist and Wesleyan (Holiness)": 0,
       "Pentecostal and other Charismatic": 20,
-      "No religion and secular perspectives": 945,
-      "Reformed": 0,
-      "Traditional (North American Indigenous) spirituality": 0,
-      "Muslim": 95,
-      "Catholic": 2835,
-      "Christian Orthodox": 150,
-      "Baptist": 65,
-      "Sikh": 3600,
-      "Anabaptist": 20,
-      "Christian, n.o.s.": 385,
       "Buddhist": 165,
-      "Jehovah's Witness": 20,
-      "Latter Day Saints": 0,
       "Other Christian and Christian-related traditions": 220,
-      "Other religions and spiritual traditions": 0,
+      "Muslim": 95,
+      "Baptist": 65,
+      "Presbyterian": 0,
+      "Traditional (North American Indigenous) spirituality": 0,
+      "Latter Day Saints": 0,
+      "Christian, n.o.s.": 385,
+      "Methodist and Wesleyan (Holiness)": 0,
+      "Anglican": 0,
+      "United Church": 85,
       "Hindu": 330,
+      "Jewish": 35,
+      "Sikh": 3600,
       "Lutheran": 70,
-      "Presbyterian": 0
+      "Christian Orthodox": 150,
+      "Reformed": 0,
+      "Other religions and spiritual traditions": 0,
+      "Anabaptist": 20,
+      "No religion and secular perspectives": 945,
+      "Catholic": 2835,
+      "Jehovah's Witness": 20
     },
     "marital_status": {
       "married": 4400,
@@ -238,114 +244,118 @@
       "divorced": 50,
       "widowed": 185
     },
-    "post_secondary": {
-      "Other fields of study": {
-        "male": 0,
-        "female": 0
+    "education": {
+      "post_secondary": {
+        "Health, parks, recreation and fitness": {
+          "male": 220,
+          "female": 625
+        },
+        "Business, management and public administration": {
+          "male": 495,
+          "female": 575
+        },
+        "Social and behavioural sciences and law": {
+          "male": 80,
+          "female": 165
+        },
+        "Education": {
+          "male": 55,
+          "female": 190
+        },
+        "Mathematics, computer and information sciences": {
+          "male": 205,
+          "female": 180
+        },
+        "Personal, protective and transportation services": {
+          "male": 95,
+          "female": 70
+        },
+        "Architecture, engineering, and related technologies": {
+          "male": 595,
+          "female": 115
+        },
+        "Physical and life sciences and technologies": {
+          "male": 110,
+          "female": 80
+        },
+        "Visual & performing arts, & communications technologies": {
+          "male": 35,
+          "female": 35
+        },
+        "Agriculture, natural resources and conservation": {
+          "male": 25,
+          "female": 10
+        },
+        "Other fields of study": {
+          "male": 0,
+          "female": 0
+        },
+        "Humanities": {
+          "male": 175,
+          "female": 195
+        }
       },
-      "Agriculture, natural resources and conservation": {
-        "male": 25,
-        "female": 10
-      },
-      "Visual & performing arts, & communications technologies": {
-        "male": 35,
-        "female": 35
-      },
-      "Personal, protective and transportation services": {
-        "male": 95,
-        "female": 70
-      },
-      "Business, management and public administration": {
-        "male": 495,
-        "female": 575
-      },
-      "Architecture, engineering, and related technologies": {
-        "male": 595,
-        "female": 115
-      },
-      "Mathematics, computer and information sciences": {
-        "male": 205,
-        "female": 180
-      },
-      "Physical and life sciences and technologies": {
-        "male": 110,
-        "female": 80
-      },
-      "Health, parks, recreation and fitness": {
-        "male": 220,
-        "female": 625
-      },
-      "Humanities": {
-        "male": 175,
-        "female": 195
-      },
-      "Social and behavioural sciences and law": {
-        "male": 80,
-        "female": 165
-      },
-      "Education": {
-        "male": 55,
-        "female": 190
+      "highest_cert_diploma_or_degree": {
+        "Postsecondary certificate, diploma or degree": 4335,
+        "No certificate, diploma or degree": 865,
+        "University certificate or diploma below bachelor level": 300,
+        "University certificate, diploma or degree at bachelor level or above": 2575,
+        "Bachelor's degree": 1765,
+        "College, CEGEP or other non-university certificate or diploma": 1150,
+        "University certificate, diploma or degree above bachelor level": 225,
+        "Apprenticeship or trades certificate or diploma": 1755,
+        "High school diploma or equivalent": 1965
       }
     },
-    "highest_cert_diploma_or_degree": {
-      "Bachelor's degree": 1765,
-      "University certificate, diploma or degree above bachelor level": 225,
-      "College, CEGEP or other non-university certificate or diploma": 1150,
-      "Apprenticeship or trades certificate or diploma": 1755,
-      "Postsecondary certificate, diploma or degree": 4335,
-      "University certificate, diploma or degree at bachelor level or above": 2575,
-      "University certificate or diploma below bachelor level": 300,
-      "High school diploma or equivalent": 1965,
-      "No certificate, diploma or degree": 865
-    },
-    "labour_force_activity": {
-      "employed": {
-        "male": 2585,
-        "female": 2335
+    "labour": {
+      "labour_force_activity": {
+        "employed": {
+          "male": 2585,
+          "female": 2335
+        },
+        "unemployed": {
+          "male": 190,
+          "female": 180
+        },
+        "not_in_labour_force": {
+          "male": 850,
+          "female": 1025
+        },
+        "participation_rate": {
+          "male": 0.765,
+          "female": 0.7090000000000001
+        },
+        "employment_rate": {
+          "male": 0.7140000000000001,
+          "female": 0.659
+        },
+        "unemployment_rate": {
+          "male": 0.069,
+          "female": 0.07200000000000001
+        }
       },
-      "unemployed": {
-        "male": 190,
-        "female": 180
-      },
-      "not_in_labour_force": {
-        "male": 850,
-        "female": 1025
-      },
-      "participation_rate": {
-        "male": 0.765,
-        "female": 0.7090000000000001
-      },
-      "employment_rate": {
-        "male": 0.7140000000000001,
-        "female": 0.659
-      },
-      "unemployment_rate": {
-        "male": 0.069,
-        "female": 0.07200000000000001
+      "employment_sector": {
+        "48-49 Transportation and warehousing": 310,
+        "54 Professional, scientific and technical services": 175,
+        "53 Real estate and rental and leasing": 80,
+        "22 Utilities": 50,
+        "21 Mining, quarrying, and oil and gas etraction": 0,
+        "44-45 Retail trade": 610,
+        "23 Construction": 250,
+        "71 Arts, entertainment and recreation": 35,
+        "31-33 Manufacturing": 540,
+        "56 Administrative and support, waste management and      remediation services": 285,
+        "91 Public administration": 285,
+        "11 Agriculture, forestry, fishing and hunting": 15,
+        "55 Management of companies and enterprises": 0,
+        "51 Information and cultural industries": 30,
+        "81 Other services (ecept public administration)": 150,
+        "62 Health care and social assistance": 880,
+        "72 Accommodation and food services": 925,
+        "41 Wholesale trade": 45,
+        "52 Finance and insurance": 180,
+        "61 Educational services": 320
       }
-    },
-    "employment_sector": {
-      "23 Construction": 250,
-      "52 Finance and insurance": 180,
-      "81 Other services (ecept public administration)": 150,
-      "72 Accommodation and food services": 925,
-      "71 Arts, entertainment and recreation": 35,
-      "48-49 Transportation and warehousing": 310,
-      "44-45 Retail trade": 610,
-      "61 Educational services": 320,
-      "55 Management of companies and enterprises": 0,
-      "56 Administrative and support, waste management and      remediation services": 285,
-      "21 Mining, quarrying, and oil and gas etraction": 0,
-      "31-33 Manufacturing": 540,
-      "22 Utilities": 50,
-      "54 Professional, scientific and technical services": 175,
-      "11 Agriculture, forestry, fishing and hunting": 15,
-      "62 Health care and social assistance": 880,
-      "41 Wholesale trade": 45,
-      "91 Public administration": 285,
-      "53 Real estate and rental and leasing": 80,
-      "51 Information and cultural industries": 30
     },
     "transportation": {
       "personal_vehicle_driver": {
@@ -371,6 +381,38 @@
       "other": {
         "male": 15,
         "female": 50
+      }
+    },
+    "income": {
+      "composition": {
+        "market": {
+          "total": {
+            "male": 0.882,
+            "female": 0.784
+          },
+          "employment": {
+            "male": 0.79,
+            "female": 0.726
+          }
+        },
+        "government_transfers": {
+          "total": {
+            "male": 0.11699999999999999,
+            "female": 0.21600000000000003
+          },
+          "employment_insurance": {
+            "male": 0.008,
+            "female": 0.025
+          },
+          "covid_19_income_support": {
+            "male": 0.055,
+            "female": 0.083
+          },
+          "covid_19_emergency": {
+            "male": 0.046,
+            "female": 0.066
+          }
+        }
       }
     }
   }

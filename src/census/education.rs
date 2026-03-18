@@ -8,6 +8,12 @@ use serde::{Deserialize, Serialize};
 use crate::census::{get_int_rounding, population::Population};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct Education {
+    pub post_secondary: PostSecondary,
+    pub highest_cert_diploma_or_degree: HighestCertDiplomaDegree
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostSecondary(pub HashMap<String, Population>);
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -15,9 +21,14 @@ pub struct HighestCertDiplomaDegree(pub HashMap<String, u64>);
 
 pub fn get_education(
     sheet: &Range<Data>,
-) -> anyhow::Result<(PostSecondary, HighestCertDiplomaDegree)> {
+) -> anyhow::Result<Education> {
     assert_matches!(sheet.get_value((369, 0)), Some(Data::String(str)) if str.trim() == "EDUCATION");
-    Ok((get_post_secondary(sheet)?, get_highest_cert_diploma_or_degree(sheet)?))
+    Ok(
+        Education {
+            post_secondary: get_post_secondary(sheet)?,
+            highest_cert_diploma_or_degree: get_highest_cert_diploma_or_degree(sheet)?,
+        }
+    )
 }
 
 pub fn get_post_secondary(sheet: &Range<Data>) -> anyhow::Result<PostSecondary> {

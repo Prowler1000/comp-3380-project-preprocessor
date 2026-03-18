@@ -7,6 +7,12 @@ use serde::{Deserialize, Serialize};
 
 use crate::census::get_int_rounding;
 
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
+pub struct Language {
+    official: OfficialLanguages,
+    unofficial: UnofficialLanguages,
+}
+
 #[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub struct OfficialLanguages {
     pub english_only: u64,
@@ -20,8 +26,13 @@ pub struct UnofficialLanguages(pub HashMap<String, u64>);
 
 pub fn get_languages(
     sheet: &Range<Data>,
-) -> anyhow::Result<(OfficialLanguages, UnofficialLanguages)> {
-    Ok((get_official_languages(sheet)?, get_unofficial_languages(sheet)?))
+) -> anyhow::Result<Language> {
+    Ok(
+        Language {
+            official: get_official_languages(sheet)?,
+            unofficial: get_unofficial_languages(sheet)?,
+        }
+    )
 }
 
 pub fn get_official_languages(sheet: &Range<Data>) -> anyhow::Result<OfficialLanguages> {

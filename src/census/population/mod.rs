@@ -4,7 +4,7 @@ use anyhow::Context;
 use calamine::{Data, Range};
 use serde::{Deserialize, Serialize};
 
-use crate::census::get_int_rounding;
+use crate::census::{get_float, get_int_rounding};
 
 pub mod by_age;
 
@@ -47,26 +47,35 @@ pub fn get_population(sheet: &Range<Data>) -> anyhow::Result<TotalPopulation> {
         Some(&Data::String("1991 CENSUS".to_owned()))
     );
     Ok(TotalPopulation {
-        census_2021: get_int_rounding(sub_range.get((2,1))).context("No or invalid 2021 population")?
-            as u64,
-        census_2016: get_int_rounding(sub_range.get((3,1))).context("No or invalid 2016 population")?
-            as u64,
-        census_2011: get_int_rounding(sub_range.get((4,1))).context("No or invalid 2011 population")?
-            as u64,
-        census_2006: get_int_rounding(sub_range.get((5,1))).context("No or invalid 2006 population")?
-            as u64,
-        census_2001: get_int_rounding(sub_range.get((6,1))).context("No or invalid 2001 population")?
-            as u64,
-        census_1996: get_int_rounding(sub_range.get((7,1))).context("No or invalid 1996 population")?
-            as u64,
-        census_1991: get_int_rounding(sub_range.get((8,1))).context("No or invalid 1991 population")?
-            as u64,
+        census_2021: get_int_rounding(sub_range.get((2, 1)))
+            .context("No or invalid 2021 population")? as u64,
+        census_2016: get_int_rounding(sub_range.get((3, 1)))
+            .context("No or invalid 2016 population")? as u64,
+        census_2011: get_int_rounding(sub_range.get((4, 1)))
+            .context("No or invalid 2011 population")? as u64,
+        census_2006: get_int_rounding(sub_range.get((5, 1)))
+            .context("No or invalid 2006 population")? as u64,
+        census_2001: get_int_rounding(sub_range.get((6, 1)))
+            .context("No or invalid 2001 population")? as u64,
+        census_1996: get_int_rounding(sub_range.get((7, 1)))
+            .context("No or invalid 1996 population")? as u64,
+        census_1991: get_int_rounding(sub_range.get((8, 1)))
+            .context("No or invalid 1991 population")? as u64,
     })
 }
 
-pub fn get_row_population(sheet: &Range<Data>, row: u32) -> anyhow::Result<Population> {
+pub fn get_row_int_population(sheet: &Range<Data>, row: u32) -> anyhow::Result<Population> {
     Ok(Population {
-        male: get_int_rounding(sheet.get_value((row, 1))).context("No or invalid male count value")? as u64,
-        female: get_int_rounding(sheet.get_value((row, 2))).context("No or invalid female count value")? as u64,
+        male: get_int_rounding(sheet.get_value((row, 1)))
+            .context("No or invalid male count value")? as u64,
+        female: get_int_rounding(sheet.get_value((row, 2)))
+            .context("No or invalid female count value")? as u64,
+    })
+}
+
+pub fn get_row_float_population(sheet: &Range<Data>, row: u32) -> anyhow::Result<Population<f64>> {
+    Ok(Population {
+        male: get_float(sheet.get_value((row, 1))).context("No or invalid male float value")?,
+        female: get_float(sheet.get_value((row, 2))).context("No or invalid female float value")?,
     })
 }

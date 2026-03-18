@@ -112,6 +112,7 @@ fn main() {
                 && let Some(ext) = entry.path().extension().and_then(|ext| ext.to_str())
                 && ext == "xlsx"
                 && let Some(name) = entry.path().file_name().and_then(|name| name.to_str()).and_then(|name| name.strip_suffix(".xlsx"))
+                && !name.starts_with("~")
             {
                 Some(Ok(ExcelFile{ file_name: name.to_owned(), excel_file_path: entry.path()}))
             } else {
