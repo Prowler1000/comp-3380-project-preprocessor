@@ -89,12 +89,12 @@ struct ExcelFile {
 }
 
 fn main() {
-    const IN_DIR: &str = ".raw_data";
-    const OUT_DIR: &str = ".out";
-    const AGGREGATE_OUT_DIR: &str = ".aggregate";
+    const IN_DIR: &str = "../neighbourhood_census_data";
+    const OUT_DIR: &str = "../.out";
+    const AGGREGATE_OUT_DIR: &str = "../assembled_data";
 
-    // parse_streets(".raw_data/City_of_Winnipeg_LRS_20260313.csv", ".out/street_definitions.json").expect("Failed to parse streets");
-    // parse_neighbourhoods(".raw_data/Neighbourhoods_20260313.csv", ".out/neighbourhood_boundaries.json").expect("Failed to parse neighbourhoods");
+    parse_streets("../other_raw_data/City_of_Winnipeg_LRS_20260313.csv", "../assembled_data/street_definitions.json").expect("Failed to parse streets");
+    parse_neighbourhoods("../other_raw_data/Neighbourhoods_20260313.csv", "../assembled_data/neighbourhood_boundaries.json").expect("Failed to parse neighbourhoods");
     let census_files = std::fs::read_dir(IN_DIR)
         .expect("Failed to read IN_DIR")
         .filter_map(|entry| -> Option<Result<ExcelFile, _>> {
