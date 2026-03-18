@@ -121,7 +121,7 @@ fn main() {
         });
     let census_data = census_files.map(Result::unwrap).map(|ExcelFile { file_name, excel_file_path: path }| {
         let data = get_census_data(&path).unwrap_or_else(|e| panic!("Failed to get census data from {}. {:#?}", path.display(), e));
-        let new_path = PathBuf::from(OUT_DIR).join(&file_name).with_extension("json");
+        let new_path = PathBuf::from(OUT_DIR).join(&file_name).with_added_extension("json");
         if let Err(error) = save_census_data(&data, new_path) {
             panic!("Failed to save census data for {} to file. {:#?}", path.display(), error);
         }
