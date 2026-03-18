@@ -5,6 +5,8 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.102"
+assert_matches = "1.5.0"
+calamine = "0.34.0"
 csv = "1.4.0"
 regex = "1.12.3"
 serde = { version = "1.0.228", features = ["derive"] }

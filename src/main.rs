@@ -1,10 +1,11 @@
 use std::{fs::File, io::Write};
 
-use crate::{neighbourhood::boundary::NeighbourhoodBoundary, street::StreetDefinition};
+use crate::{census::test, neighbourhood::boundary::NeighbourhoodBoundary, street::StreetDefinition};
 
 pub mod street;
 pub mod neighbourhood;
 pub mod geospatial;
+pub mod census;
 
 static RAW_STREETS: &str = ".raw_data/City_of_Winnipeg_LRS_20260313.csv";
 static RAW_NEIGHBOURHOODS: &str = ".raw_data/Neighbourhoods_20260313.csv";
@@ -34,5 +35,6 @@ fn parse_neighbourhoods() {
 
 fn main() {
     // parse_streets();
-    parse_neighbourhoods();
+    // parse_neighbourhoods();
+    test().expect("Failed to do the thing");
 }
