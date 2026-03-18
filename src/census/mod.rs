@@ -3,6 +3,7 @@ use std::path::Path;
 use anyhow::Context;
 use assert_matches::assert_matches;
 use calamine::{Data, Range, Reader, open_workbook_auto};
+use comp_3380_project_preprocessor::Datapoint;
 use serde::{Deserialize, Serialize};
 
 use crate::census::{
@@ -62,6 +63,15 @@ pub(crate) fn get_float<F>(data: Option<&Data>, on_not_applicable: F) -> anyhow:
             on_not_applicable()
         },
         invalid => Err(anyhow::Error::msg(format!("Expected a float, found {:#?}", invalid))),
+    }
+}
+
+pub(crate) fn get_float_datapoint(data: Option<&Data>) -> anyhow::Result<Datapoint<f64>> {
+    match data {
+        Some(Data::Float(val)) => Ok(Datapoint::Datapoint(*val)),
+        Some(Data::String(str)) if str.trim() == "x" => Ok(Datapoint::Redacted),
+        Some(Data::String(str)) if str.trim() == "..." => Ok(Datapoint::NotApplicable),
+        other => Err(anyhow::Error::msg(format!("Expected Float, 'x', or '...' but got {:?}", other)))
     }
 }
 

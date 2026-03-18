@@ -1,5 +1,6 @@
 use assert_matches::assert_matches;
 use calamine::{Data, Range};
+use comp_3380_project_preprocessor::Datapoint;
 use serde::{Deserialize, Serialize};
 
 use crate::census::{assert_test_ranges, population::{Population, get_row_float_population}};
@@ -17,16 +18,16 @@ pub struct PercentCompositionOfTotalIncome {
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct MarketIncome {
-    total: Population<f64>,
-    employment: Population<f64>,
+    total: Population<Datapoint<f64>>,
+    employment: Population<Datapoint<f64>>,
 }
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct GovernmentTransfers {
-    total: Population<f64>,
-    employment_insurance: Population<f64>,
-    covid_19_income_support: Population<f64>,
-    covid_19_emergency: Population<f64>,
+    total: Population<Datapoint<f64>>,
+    employment_insurance: Population<Datapoint<f64>>,
+    covid_19_income_support: Population<Datapoint<f64>>,
+    covid_19_emergency: Population<Datapoint<f64>>,
 }
 
 pub struct IndividualIncome {}
