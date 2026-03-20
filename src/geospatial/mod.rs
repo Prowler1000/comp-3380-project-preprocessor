@@ -11,8 +11,8 @@ const CENTRAL_MERIDIAN: f64 = -97.142445; // Roughly middle of Winnipeg
 #[serde(untagged)]
 pub enum Coordinates {
     Geographic {
-        pub longitude: f64,
-        pub latitude: f64,
+        longitude: f64,
+        latitude: f64,
     }
 }
 
