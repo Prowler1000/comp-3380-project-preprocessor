@@ -3,16 +3,15 @@ use std::path::Path;
 use anyhow::Context;
 use assert_matches::assert_matches;
 use calamine::{Data, Range, Reader, open_workbook_auto};
-use comp_3380_project_preprocessor::Datapoint;
 use serde::{Deserialize, Serialize};
 
-use crate::census::{
+use crate::{Datapoint, census::{
     citizenship::{Citizenship, get_citizenship}, education::{Education, get_education}, immigration::{Immigration, get_immigration}, income::{Income, get_income}, indigenous::{Indigenous, get_indigenous}, labour::{Labour, get_labour}, language::{Language, get_languages}, marital_status::{MaritalStatus, get_marital_status}, population::{
         TotalPopulation,
         by_age::{PopulationByAge, get_population_by_age},
         get_population,
     }, religion::{Religion, get_religion}, transportation::{MainTransportation, get_transportation}, visible_minorities::{VisibleMinorities, get_visible_minorities}
-};
+}};
 
 pub mod citizenship;
 pub mod education;

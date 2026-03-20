@@ -2,10 +2,9 @@ use std::{f64, ops::Add};
 
 use anyhow::Context;
 use calamine::{Data, Range};
-use comp_3380_project_preprocessor::Datapoint;
 use serde::{Deserialize, Serialize};
 
-use crate::census::{get_float, get_float_datapoint, get_int_rounding};
+use crate::{Datapoint, census::{get_float, get_float_datapoint, get_int_rounding}};
 
 pub mod by_age;
 

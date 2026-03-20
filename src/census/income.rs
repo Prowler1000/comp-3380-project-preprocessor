@@ -1,9 +1,8 @@
 use assert_matches::assert_matches;
 use calamine::{Data, Range};
-use comp_3380_project_preprocessor::Datapoint;
 use serde::{Deserialize, Serialize};
 
-use crate::census::{assert_test_ranges, population::{Population, get_row_float_population}};
+use crate::{Datapoint, census::{assert_test_ranges, population::{Population, get_row_float_population}}};
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct Income {

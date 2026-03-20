@@ -1,12 +1,11 @@
 use std::{fmt::Display, num::ParseFloatError, sync::LazyLock};
 
-use comp_3380_project_preprocessor::LOCATION_REGEX;
 use csv::Reader;
 use regex::Regex;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
-use crate::geospatial::{Coordinates, Line};
+use crate::{LOCATION_REGEX, geospatial::{Coordinates, Line}};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct PartialStreetDefinition {

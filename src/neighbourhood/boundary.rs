@@ -1,14 +1,13 @@
 use std::num::{ParseFloatError, ParseIntError};
 
-use comp_3380_project_preprocessor::LOCATION_REGEX;
 use csv::Reader;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
-use crate::geospatial::{
+use crate::{LOCATION_REGEX, geospatial::{
     Coordinates,
     polygon::{Polygon, PolygonBuilder},
-};
+}};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct NeighbourhoodBoundary {

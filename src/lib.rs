@@ -3,6 +3,11 @@ use std::sync::LazyLock;
 use regex::Regex;
 use serde::{Deserialize, Serialize};
 
+pub mod census;
+pub mod geospatial;
+pub mod neighbourhood;
+pub mod street;
+
 #[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub enum Datapoint<T> {
     NotApplicable,

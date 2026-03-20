@@ -4,16 +4,11 @@ use std::{
 
 use anyhow::Context;
 
-use crate::{
+use comp_3380_project_preprocessor::{
     census::{CensusData, get_census_data, test},
     neighbourhood::boundary::NeighbourhoodBoundary,
     street::StreetDefinition,
 };
-
-pub mod census;
-pub mod geospatial;
-pub mod neighbourhood;
-pub mod street;
 
 static RAW_STREETS: &str = ".raw_data/City_of_Winnipeg_LRS_20260313.csv";
 static RAW_NEIGHBOURHOODS: &str = ".raw_data/Neighbourhoods_20260313.csv";
