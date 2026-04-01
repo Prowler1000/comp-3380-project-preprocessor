@@ -76,19 +76,19 @@ pub(crate) fn get_float_datapoint(data: Option<&Data>) -> anyhow::Result<Datapoi
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CensusData {
-    total_population: TotalPopulation,
-    population_by_age: PopulationByAge,
-    languages: Language,
-    indigenous: Indigenous,
-    visible_minorities: VisibleMinorities,
-    citizenship: Citizenship,
-    immigration: Immigration,
-    religion: Religion,
-    marital_status: MaritalStatus,
-    education: Education,
-    labour: Labour,
-    transportation: MainTransportation,
-    income: Income,
+    pub total_population: TotalPopulation,
+    pub population_by_age: PopulationByAge,
+    pub languages: Language,
+    pub indigenous: Indigenous,
+    pub visible_minorities: VisibleMinorities,
+    pub citizenship: Citizenship,
+    pub immigration: Immigration,
+    pub religion: Religion,
+    pub marital_status: MaritalStatus,
+    pub education: Education,
+    pub labour: Labour,
+    pub transportation: MainTransportation,
+    pub income: Income,
 }
 
 pub fn get_census_data<P>(path: P) -> anyhow::Result<CensusData>

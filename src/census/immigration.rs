@@ -18,12 +18,12 @@ pub struct Birthplace(pub HashMap<String, u64>);
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct ImmigrationPeriod {
-    before_1980: u64,
-    from_1980_to_1990: u64,
-    from_1991_to_2000: u64,
-    from_2000_to_2010: u64,
-    from_2011_to_2015: u64,
-    from_2016_to_2021: u64,
+    pub before_1980: u64,
+    pub from_1980_to_1990: u64,
+    pub from_1991_to_2000: u64,
+    pub from_2000_to_2010: u64,
+    pub from_2011_to_2015: u64,
+    pub from_2016_to_2021: u64,
 }
 
 pub fn get_immigration(sheet: &Range<Data>) -> anyhow::Result<Immigration> {

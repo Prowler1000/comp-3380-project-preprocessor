@@ -11,18 +11,18 @@ use crate::census::{
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Labour {
-    labour_force_activity: LabourForceActivity,
-    employment_sector: EmploymentSector,
+    pub labour_force_activity: LabourForceActivity,
+    pub employment_sector: EmploymentSector,
 }
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct LabourForceActivity {
-    employed: Population,
-    unemployed: Population,
-    not_in_labour_force: Population,
-    participation_rate: Population<f64>,
-    employment_rate: Population<f64>,
-    unemployment_rate: Population<f64>,
+    pub employed: Population,
+    pub unemployed: Population,
+    pub not_in_labour_force: Population,
+    pub participation_rate: Population<f64>,
+    pub employment_rate: Population<f64>,
+    pub unemployment_rate: Population<f64>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]

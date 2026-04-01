@@ -6,27 +6,27 @@ use crate::{Datapoint, census::{assert_test_ranges, population::{Population, get
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct Income {
-    composition: PercentCompositionOfTotalIncome,
+    pub composition: PercentCompositionOfTotalIncome,
 }
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct PercentCompositionOfTotalIncome {
-    market: MarketIncome,
-    government_transfers: GovernmentTransfers,
+    pub market: MarketIncome,
+    pub government_transfers: GovernmentTransfers,
 }
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct MarketIncome {
-    total: Population<Datapoint<f64>>,
-    employment: Population<Datapoint<f64>>,
+    pub total: Population<Datapoint<f64>>,
+    pub employment: Population<Datapoint<f64>>,
 }
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct GovernmentTransfers {
-    total: Population<Datapoint<f64>>,
-    employment_insurance: Population<Datapoint<f64>>,
-    covid_19_income_support: Population<Datapoint<f64>>,
-    covid_19_emergency: Population<Datapoint<f64>>,
+    pub total: Population<Datapoint<f64>>,
+    pub employment_insurance: Population<Datapoint<f64>>,
+    pub covid_19_income_support: Population<Datapoint<f64>>,
+    pub covid_19_emergency: Population<Datapoint<f64>>,
 }
 
 pub struct IndividualIncome {}

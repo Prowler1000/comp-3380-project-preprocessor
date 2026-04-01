@@ -6,12 +6,12 @@ use crate::census::{assert_test_ranges, population::{Population, get_row_int_pop
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 pub struct MainTransportation {
-    personal_vehicle_driver: Population,
-    public_transit: Population,
-    personal_vehicle_passenger: Population,
-    walk: Population,
-    bicycle: Population,
-    other: Population,
+    pub personal_vehicle_driver: Population,
+    pub public_transit: Population,
+    pub personal_vehicle_passenger: Population,
+    pub walk: Population,
+    pub bicycle: Population,
+    pub other: Population,
 }
 
 pub fn get_transportation(sheet: &Range<Data>) -> anyhow::Result<MainTransportation> {

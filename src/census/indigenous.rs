@@ -22,9 +22,9 @@ pub struct IndigenousIdentity {
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct IndigenousAncestry {
-    first_nations: u64,
-    métis: u64,
-    inuit: u64,
+    pub first_nations: u64,
+    pub métis: u64,
+    pub inuit: u64,
 }
 
 pub fn get_indigenous(sheet: &Range<Data>) -> anyhow::Result<Indigenous> {

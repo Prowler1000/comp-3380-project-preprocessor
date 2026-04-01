@@ -9,8 +9,8 @@ use crate::census::get_int_rounding;
 
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Language {
-    official: OfficialLanguages,
-    unofficial: UnofficialLanguages,
+    pub official: OfficialLanguages,
+    pub unofficial: UnofficialLanguages,
 }
 
 #[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
